@@ -1,2 +1,3 @@
 # Alntfold
-An open-source administration bot.
+
+Alntfold is an open-source administration Discord bot made with the [Discordia](https://github.com/SinisterRectus/Discordia) library.
