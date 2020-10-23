@@ -2,7 +2,7 @@ local discordia = require("Discordia")
 local client = discordia.Client()
 local prefix = "="
 local commandlist = {
-	["help"] = {"Help", "Alntfold is a simple, open-source Discord administration bot with a wide breadth of features made with the Discordia library. View its repository on Github: https://github.com/EEDiscordiaBot/Alntfold\n\nThis bot's prefix is `"..prefix.."`.\n\nNeed help with a specific command? You can do: `"..prefix.."help commandname`\n\nExample: '"..prefix.."help ban`", "15466472", "`help`", "`help`", "• None"}
+	["help"] = {"Help", "Alntfold is a simple, open-source Discord administration bot with a wide breadth of features made with the Discordia library. View its repository on Github: https://github.com/EEDiscordiaBot/Alntfold\n\nThis bot's prefix is `"..prefix.."`.\n\nNeed help with a specific command? You can do: `"..prefix.."help commandname`\n\nExample: '"..prefix.."help ban`", "15466472", "`help`", "`help`", "• None"},
 	["ban"] = {"Ban", "Bans member(s).", "15466472", "`"..prefix.."ban [Mentions]`", "`"..prefix.."ban <@240291244306071552>, <@765819682585706496>`", "• Ban Members Permission"}
 }
 
@@ -11,13 +11,13 @@ local commands = {
 		local command = command[string.sub(message.content, 7)]
 		message.channel:send {
 			embeds = {
-				title = command[1]
-				description = command[2]
-				color = command[3]
+				title = command[1],
+				description = command[2],
+				color = command[3],
 				fields = {
-					{name = "Syntax", value = command[4], inline = true}
-					{name = "Example", value = command[5], inline = true}
-					{name = "Requirements", value = command[6], inline = false}
+					{name = "Syntax", value = command[4], inline = true},
+					{name = "Example", value = command[5], inline = true},
+					{name = "Requirements", value = command[6], inline = false},
 				}
 			}
 		}
