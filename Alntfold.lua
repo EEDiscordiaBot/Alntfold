@@ -23,24 +23,27 @@ local function CatastrophicErorr(Channel)
 end
 
 local Commands = {
-	["nil"] = "" -- Placeholder for testing
+	["a"] = function(Message) -- Placeholder for testing
+		Message.channel:send(":white_check_mark:")
+	end
 }
 
 Client:on("messageCreate", function(Message)
 	if not Message.author.bot and string.sub(Message.content, 1, 1) == Prefix then
-		
+		local Command
+
 		if SpaceFind then
-			local Command = string.sub(Message.content, 2, (string.find(Message.content, " ") - 1))
+			Command = string.sub(Message.content, 2, (string.find(Message.content, " ") - 1))
 		else
-			local Command = string.sub(Message.content, 2)
+			Command = string.sub(Message.content, 2)
 		end
 		
 		if Commands[Command] then
-			Commands[command](Message)
+			Commands[Command](Message)
 		else
 			Error(Message.channel, "Invalid Command", "You can run `"..Prefix.."command list` to get a list of valid commands.")
 		end
 	end
 end)
 
-Client:run("Bot XXXXXXXXXXXXXXXXXXXXXXXXX.XXXX-X.XXXXXXXXXXXXXXXXXXXXXXXXX-X") -- Replace with your bot token from https://discord.com/developers/applications.
+Client:run("Bot XXXXXXXXXXXXXXXXXXXXXXXX.XXXX-X.XXXXXXXXXXXXXXXXXXXXXXXXX-X") -- Replace with your bot token from https://discord.com/developers/applications.
