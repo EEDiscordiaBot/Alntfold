@@ -1,35 +1,46 @@
 local Discordia = require("Discordia")
 local Client = Discordia.Client()
 local Prefix = "|"
-local Debug = 0
 
-local function Error(Channel, Error)
+local function Error(Channel, ErrorType, ErrorRemedy)
 	Channel:send{
 				embed = {
-						title = "Error"
-						description = Error
-						color = 8850187
+						title = "Error - "..ErrorType,
+						description = ErrorRemedy,
+						color = 8850187,
 						}
 				}
 end
 
+local function CatastrophicErorr(Channel)
+	Channel:send{
+				embed = {
+						title = "A Catastrophic Error Has Occured",
+						description = "You really shouldn't be reading this. We don't know what happened or why. Please contact `EE#3373` if you receive this error, along with information such as what exactly you did.",
+						color = 8850187	
+				}
+	}
+end
+
+local Commands = {
+	["nil"] = "" -- Placeholder for testing.
+}
 
 Client:on("messageCreate", function(Message)
-	if not Message.author.bot and string.sub(Message, 1, 1) == Prefix then
-		local SpaceFind = string.SpaceFind(Message, " ")
+	if not Message.author.bot and string.sub(Message.content, 1, 1) == Prefix then
 		
 		if SpaceFind then
-			local Command = string.sub(Message, 2, (SpaceFind - 1))
+			local Command = string.sub(Message.content, 2, (string.find(Message.content, " ") - 1))
 		else
-			local Command = string.sub(Message, 2)
+			local Command = string.sub(Message.content, 2)
 		end
 		
 		if Commands[Command] then
 			Commands[command](Message)
 		else
-			Error(Message.channel, "Invalid command! You can run `"Prefx.."command list` to get a list of valid commands.")
+			Error(Message.channel, "Invalid Command", "You can run `"..Prefix.."command list` to get a list of valid commands.")
 		end
 	end
 end)
 
-Client:run("Bot ")
+Client:run("Bot NzY5MTIxMjQ5MjEyNjI5MDEz.X5KZ-w.mH6NfprpVylj4aE7H_a80M9L4-s")
