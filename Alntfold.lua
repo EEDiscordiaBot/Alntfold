@@ -4,12 +4,12 @@ local Prefix = "|"
 
 local function Error(Channel, ErrorType, ErrorRemedy)
 	Channel:send{
-				embed = {
-						title = "Error - "..ErrorType,
-						description = ErrorRemedy,
-						color = 8850187,
-						}
-				}
+		embed = {
+			title = "Error - "..ErrorType,
+			description = ErrorRemedy,
+			color = 8850187,
+		}
+	}
 end
 
 local function CatastrophicErorr(Channel)
@@ -23,7 +23,7 @@ local function CatastrophicErorr(Channel)
 end
 
 local Commands = {
-	["nil"] = "" -- Placeholder for testing.
+	["nil"] = "" -- Placeholder for testing
 }
 
 Client:on("messageCreate", function(Message)
