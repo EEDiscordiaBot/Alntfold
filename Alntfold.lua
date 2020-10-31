@@ -43,4 +43,4 @@ Client:on("messageCreate", function(Message)
 	end
 end)
 
-Client:run("Bot XXXXXXXXXXXXXXXXXXXXXXXXX.XXXX-X.XXXXXXXXXXXXXXXXXXXXXXXXX-X") -- Replace with your token.
+Client:run("Bot XXXXXXXXXXXXXXXXXXXXXXXXX.XXXX-X.XXXXXXXXXXXXXXXXXXXXXXXXX-X") -- Replace with your bot token from https://discord.com/developers/applications.
